@@ -1,0 +1,36 @@
+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
+
+ass12:- Github to EC2 without using port
+
+pwd
+cd /-
+pwd
+cd/etc/nginx/sites-available/-
+sudo nano default-
+
+location /{
+            proxy_pass http://localhost:4000;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection 'Upgrade';
+            proxy_set_header Host $host;
+            proxy_cache_bypass $http_upgrade;
+           }
+save it using CTRL X then Y then Enter
+
+sudo systemctl restart nginx
+
+
+user data:- 
+#!/bin/bash
+apt-get update
+apt-get install -y nginx
+systemctl start nginx
+systemctl enable nginx
+apt-get install-y git
+curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash-
+apt-get install -y nodejs
+git clone yourRepository URL 
+cd YourRepoName/
+npm install
+node index.js
